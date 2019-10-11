@@ -15,10 +15,10 @@ Masks and filters are set to the only one id 0x433.
 
 ### Connection
 The device is connect to audio module connector pins  
-3 - Vin Arduino nano  
-13 - GND Arduino nano  
-14 - CAN H mcp2515  
-15 - CAN L mcp2515  
+Kl.15 (pin 3) - Vin Arduino nano  
+Ground (pin 13) - GND Arduino nano  
+MM_CAN High (pin 14) - CAN H mcp2515  
+MM_CAN Low (pin 15) - CAN L mcp2515  
  
 ### Remember
-And don't forget so that it work right you should change central configuration car (byte 99 to with rear camera).
+And don't forget so that it work right you should change central vehicle configuration car (byte 99 to with rear camera) and reinitialise module screen FCDIM.
