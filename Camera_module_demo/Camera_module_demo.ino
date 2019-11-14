@@ -3,6 +3,7 @@
 // If 3 bite data 0x02 - revers on -> send to id 303 pakage 2 bite 0x40
 // If 0x00 - revers off -> send 0x20 
 
+#include <avr/wdt.h>
 #include <SPI.h>
 #include <mcp_can.h>
 
@@ -47,6 +48,9 @@ void setup() {
   CAN.init_Filt(4,0,0x04330000);                // Init fifth filter...
   CAN.init_Filt(5,0,0x04330000);                // Init sixth filter...
   CAN.setMode(MCP_NORMAL);                // Change to normal mode to allow messages to be transmitted
+
+  // watchdog set
+  wdt_enable(WDTO_4S);
 }
 
 void MCP2515_ISR() {
@@ -105,4 +109,6 @@ void loop()
       Serial.println();
     #endif
    }
+   
+   wdt_reset();
 }
